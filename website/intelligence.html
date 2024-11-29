@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能问答机器人</title>
+
+    <!-- 引入外部 CSS 文件 -->
+    <link rel="stylesheet" href="css/intelligence.css">
+</head>
+
+<body class="chat-page">
+    <div class="header" id="navbar">
+        <img src="./img/whiteLogo.svg" class="logo" alt="" />
+        <div class="headerContent">
+            <a href="index.html" class="jumpLink">首页</a>
+            <a href="javascript:void(0);" class="jumpLink" onclick="checkLoginAndRedirect('map.html')">设备定位</a>
+            <a href="javascript:void(0);" class="jumpLink" onclick="checkLoginAndRedirect('intelligence.html')">智能问答</a>
+            <a href="team.html" class="jumpLink">关于我们</a>
+            <a id="loginButton" class="jumpLink" onclick="handleLoginStatus()">用户登录</a>
+        </div>
+    </div>
+
+    <div id="chat-container">
+        <div id="prompt"></div>
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="请输入问题" />
+            <button id="send-btn">发送</button>
+            <button id="startBtn">开始语音识别</button>
+            <button id="stopBtn" disabled>停止识别</button>
+        </div>
+        <div id="keywords-container" class="keywords-container">
+            <div style="font-weight:bold ; font-size: 25px;">你可以试着问我这些：</div>
+            <button class="keyword-btn" onclick="sendKeywordMessage('鳗红鳍病的成因')"><img
+                    src="img/text.svg">&nbsp;鳗红鳍病的成因</button>
+            <button class="keyword-btn" onclick="sendKeywordMessage('鱼嘴溃烂是什么疾病造成的')"><img
+                    src="img/light.svg">&nbsp;鱼嘴溃烂是什么疾病造成的?</button>
+            <button class="keyword-btn" onclick="sendKeywordMessage('车轮虫病怎么治')"><img
+                    src="img/text.svg">&nbsp;车轮虫病怎么治</button>
+            <button class="keyword-btn" onclick="sendKeywordMessage('饲养密度不适宜有什么影响')"><img
+                    src="img/light.svg">&nbsp;饲养密度不适宜有什么影响?</button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- 引入外部 JavaScript 文件 -->
+    <script src="js/intelligence.js"></script>
+
+    <script>
+        // 语音识别功能
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (!SpeechRecognition) {
+            alert("抱歉，您的浏览器不支持语音识别功能。");
+        } else {
+            var recognition = new SpeechRecognition();
+            recognition.lang = "zh-CN";  // 设置语言为中文
+            recognition.interimResults = true;  // 获取中间结果
+
+            var startBtn = document.getElementById("startBtn");
+            var stopBtn = document.getElementById("stopBtn");
+
+            // 直接使用已声明的 userInput
+            // var userInput = document.getElementById("user-input");
+
+            // 开始语音识别
+            startBtn.onclick = function () {
+                recognition.start();
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+            };
+
+            // 停止语音识别
+            stopBtn.onclick = function () {
+                recognition.stop();
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            };
+
+            // 语音识别成功回调
+            recognition.onresult = function (event) {
+                var transcript = "";
+                for (var i = event.resultIndex; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript;
+                }
+                // 将语音识别的结果填入聊天输入框
+                userInput.value = transcript;
+            };
+
+            // 语音识别结束回调
+            recognition.onend = function () {
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            };
+
+            // 语音识别错误回调
+            recognition.onerror = function (event) {
+                console.error("语音识别错误: " + event.error);
+                alert("发生错误: " + event.error);
+            };
+        }
+
+        // 页面加载时的初始化操作
+        window.onload = function () {
+            // 显示提示文字
+            const text = "有什么可以帮忙的？";
+            let i = 0;
+            prompt.style.opacity = 1;
+            const interval = setInterval(() => {
+                prompt.textContent += text[i];
+                i++;
+                if (i === text.length) {
+                    clearInterval(interval);
+                }
+            }, 100);
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const loginButton = document.getElementById('loginButton');
+            if (isLoggedIn) {
+                loginButton.textContent = '退出登录';
+            } else {
+                loginButton.textContent = '用户登录';
+            }
+        };
+
+        // 绑定按钮点击事件
+        sendBtn.addEventListener('click', sendMessage);
+
+        // 绑定回车键事件
+        userInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        // 处理登录/退出按钮点击事件
+        function handleLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (isLoggedIn) {
+                // 退出登录
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userAccount');
+                alert('已退出登录');
+                window.location.reload(); // 重新加载页面以更新登录状态
+            } else {
+                // 跳转到登录页面
+                window.location.href = 'login.html';
+            }
+        }
+
+        // 检查登录状态后跳转
+        function checkLoginAndRedirect(page) {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (isLoggedIn) {
+                window.location.href = page;  // 已登录，跳转到目标页面
+            } else {
+                localStorage.setItem('redirectUrl', page);  // 未登录，保存目标页面的 URL
+                window.location.href = 'login.html';  // 跳转到登录页面
+            }
+        }
+    </script>
+</body>
+
+</html>

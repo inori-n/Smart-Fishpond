@@ -1,0 +1,398 @@
+#container {
+    margin-left: 2%;
+    margin-top: 7.5%;
+    width: 70vw;
+    height: 70vh;
+}
+
+.table-container {
+    margin-left: 2%;
+    width: 92%;
+    background-color: white;
+    margin-top: 2%;
+    padding: 2%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+    margin: 0 0 20px 0;
+}
+
+table {
+
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+th,
+td {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+th {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid black;
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.page-button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border: 2px solid #007BFF;
+    color: #007BFF;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.map-button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border: 2px solid #007BFF;
+    color: #007BFF;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.active {
+    background-color: #007BFF;
+    color: white;
+}
+
+.info-window {
+    font-size: 12px;
+    /* 更小的字体大小 */
+    width: 170px;
+    height: 140px;
+
+    /* 行间距 */
+
+    /* 内边距 */
+
+    /* 最大宽度 */
+    /* 可选：添加边框和背景色使其更美观 */
+
+    background-color: #fff;
+
+}
+
+.fixed {
+    border-radius: 100px;
+
+    position: fixed;
+    /* 固定在视口 */
+    /* top: 0; */
+    /* 距离顶部 0 */
+    /* left: 0; */
+    /* 距离左边 0 */
+    width: 99%;
+    /* 宽度100% */
+    height: 8%;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 默认不透明 */
+    transition: background-color 0.3s ease;
+    /* 添加过渡效果 */
+    padding: 10px 0;
+    z-index: 1000;
+    /* 确保在其他元素之上 */
+}
+
+.fixed.transparent {
+    background-color: rgba(0, 0, 0, 0);
+    /* 鼠标下方时的透明度 */
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    /* text-align: right; */
+    height: 60px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    /* 添加一些内边距 */
+    /* justify-content: space-around; */
+    /* 在容器内均匀分布链接 */
+    /* background-color: rgba(0, 0, 0, 0.6); */
+
+}
+
+.pic {
+    width: 50%;
+    padding-left: 70px;
+    /* padding-right: 70%; */
+    /* align-items: left; */
+    /* margin-top: 2px; */
+
+}
+
+.link-button {
+    display: inline-block;
+    /* background-color: white; */
+    padding: 2%;
+
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    border: none;
+    border-radius: 5px;
+    text-decoration: dashed;
+    margin-right: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.icon {
+    width: 20px;
+    /* 设置图标宽度 */
+    height: 0%;
+    /* 自适应高度 */
+    margin-right: 8px;
+    /* 添加右边距 */
+    vertical-align: middle;
+    /* 使图标与文字垂直对齐 */
+    display: inline-block;
+    /* 使图标为行内块元素 */
+}
+
+.top5 {
+    flex: 1;
+
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    text-align: right;
+    width: 50%;
+    padding-right: 0.015%;
+    /* padding-right: 80%; */
+    /* margin-top: 5px; */
+    /* 右对齐 */
+    /* 使用 Flexbox 布局 */
+    /* justify-content: flex-end; */
+    /* 将内容推向右边 */
+}
+
+.top5 a {
+    /* margin-bottom: 7px; */
+    margin-right: 28px;
+    /* 设置链接之间的间距 */
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 保持颜色与周围文本一致 */
+    position: relative;
+}
+
+.top5 a:nth-child(2) {
+    /* 为第一个链接（首页）添加下划线 */
+    border-bottom: 2px solid white;
+    /* 设置底部边框 */
+    padding-bottom: 4px;
+    /* 添加一些内边距以增加视觉效果 */
+}
+
+
+.background {
+    margin-top: 7.5%;
+    margin-left: 1%;
+    height: 65vh;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 21vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.white {
+    color: black;
+    margin-left: 4%;
+    margin-top: 5%;
+    margin-bottom: -1%;
+}
+
+.white2 {
+    color: black;
+    font-size: 20px;
+    margin-right: 120px;
+}
+
+.white3 {
+    color: black;
+    font-size: 20px;
+    margin-right: 40px;
+}
+
+
+
+
+.date {
+
+
+    font-size: 18px;
+}
+
+.double {
+    display: flex;
+
+}
+
+.taifeng img {
+    width: 40px;
+    height: 0;
+    height: 40px;
+    vertical-align: middle;
+    display: inline-block;
+
+}
+
+.taifeng {
+    padding-bottom: 10px;
+
+}
+
+.mianban {
+    display: flex;
+    font-size: 18px;
+}
+
+.xinxi {
+    margin-left: -20px;
+
+}
+
+.supercontainer {
+    display: flex;
+    /* 使用 Flexbox 布局 */
+    align-items: center;
+    /* 垂直居中对齐 */
+}
+
+.last1,
+.last2 {
+    display: flex;
+    /* 使每个盒子内部也使用 Flexbox */
+    align-items: center;
+    /* 垂直居中对齐 */
+    margin-right: 20px;
+    /* 盒子之间的间距，可以根据需要调整 */
+}
+
+.image1 img,
+.image2 img {
+    width: 70px;
+
+    /* 设置图片宽度 */
+    height: auto;
+    /* 保持图片比例 */
+}
+
+.text-1,
+.text-2 {
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列文本 */
+    margin-left: 4px;
+    /* 图片与文字之间的间距 */
+}
+
+.zonshu,
+.zonshu2,
+.zaixian,
+.zaixian2 {
+    margin: 0;
+    font-weight: bold;
+    /* 去掉默认的外边距 */
+    line-height: 0.4;
+    /* 行高可以根据需要调整 */
+}
+
+.zonshu2,
+.zaixian2 {
+    font-size: 40px;
+    margin-left: 10px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: rgba(17, 13, 25, 1);
+    min-width: 100vw;
+    height: 5vh;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 95%;
+	height: 60px;
+	-webkit-transition: all 1s ease !important;
+	transition: all 1s ease !important;
+	position: fixed;
+	left: 2.5%;
+	top: 2.5%;
+	z-index: 999;
+	border-radius: 20px;
+	word-break: keep-all;
+	border: 1.5px solid transparent;
+}
+
+/*.header:hover {*/
+/*  background-color: rgba(0, 0, 0, .5);*/
+/*}*/
+
+.headerContent{
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	margin-right: 50px;
+	margin-left: 60vw;
+}
+
+.jumpLink{
+	text-decoration: none;
+	color: white;
+	font-family: Microsoft YaHei Light;
+	
+} 
+
+.jumpLink:hover{
+	margin-bottom: -7px;
+	/* text-decoration: underline; */
+	padding-bottom: 5px;
+	border-bottom: 2px solid white;
+}
+
+
+.logo{
+	width: 100vw;
+	height: 5vh;
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

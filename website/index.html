@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大智若渔</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="shortcut icon" href="img/logo.ico">
+    <script src="./js/rollDown-index.js"></script>
+</head>
+
+<body>
+    <div class="header" id="navbar">
+        <img src="./img/whiteLogo.svg" class="logo" alt="" />
+        <div class="headerContent">
+            <a href="index.html" class="jumpLink">首页</a>
+            <a href="javascript:void(0);" class="jumpLink" onclick="checkLoginAndRedirect('map.html')">设备定位</a>
+            <a href="javascript:void(0);" class="jumpLink" onclick="checkLoginAndRedirect('intelligence.html')">智能问答</a>
+            <a href="team.html" class="jumpLink">关于我们</a>
+            <a id="loginButton" class="jumpLink" onclick="handleLoginStatus()">用户登录</a>
+        </div>
+    </div>
+
+    <!-- 以下为首页内容 -->
+    <div>
+        <div class="background" id="background">
+            <div class="four">
+                <br /><br /><br /><br /><br />
+                <div style="font-size: 40px; font-family:微软雅黑;margin-top:-3%;">物联网时代下的智慧渔业管理平台</div>
+                <div class="fishpond">深位池水产养殖监测系统</div>
+                <div class="eng">SMART FISHPOND ACCESS</div>
+                <div style="font-family:微软雅黑 Light;font-size: 25px;margin-top:15px;">三个月持续深耕应用,福州大学唯一指定物联网渔业管理系统！</div>
+                <a href="javascript:void(0);" class="red-button" onclick="checkLoginAndRedirect('map.html')">立即体验</a>
+            </div>
+        </div>
+        <br />
+
+        <!-- 重做部分 -->
+        <div class="ditu">
+            <div class="hezi">
+                <div class="bigger">
+                    <div>设备定位&nbsp;</div>
+                    <img src="img/dinwei.png" alt="定位图标">
+                </div>
+                <div class="rq2">
+                    <div class="smaller">Device Location</div>
+                    <div class="cu2"></div>
+                </div>
+                <br />
+                <div class="additional">精准定位\一目了然\安全可靠</div><br />
+                <div class="description">接入高德地图API, 利用卫星地图实现<br />设备信息实时定位追踪，让设备管理<br />如虎添翼</div>
+                <br />
+                <div><a href="javascript:void(0);" class="bluebutton" onclick="checkLoginAndRedirect('map.html')">了解详情
+                        &gt;&gt;</a></div>
+            </div>
+            <div class="map"><img src="img/sup.png"></div>
+        </div>
+
+        <div class="bj3">
+            <div style="font-size:36px; font-weight: bold; text-align:center; color:white;">人工智能助力水产养殖,有智更有"质"</div>
+        </div>
+        <div div class="sp">
+            <br />
+            <div class="paiban">
+                <div class="computer">
+                    <div><video class="video" width="500" height="260" autoplay loop playsinline>
+                            <source src="img/vedio.webm" type="video/webm">
+                            您的浏览器不支持 HTML5 视频标签。
+                        </video>
+                    </div>
+                    <div class="xiaoyu"><img src="img/yu.png"></div>
+                </div>
+                <div class="RGZN">
+                    <div class="right">
+                        <div class="box">
+                            <div class="threedot"></div>
+                            <div class="zhineng">
+                                <img src="img/智能AI.svg">
+                                <div>智能问答</div>
+                            </div>
+                        </div>
+                        <div class="ononeline">
+                            <div class="line2"></div>
+                            <div class="rq">
+                                <div class="cu"></div>
+                                <div class="smaller2">Intelligence</div>
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="additional2">精准定位\一目了然\安全可靠</div><br />
+                        <div class="description2">
+                            基于BERT算法自主训练NLP大语言模型，提供<br />超乎想象的专业智能问答服务。系统能够识别<br />语义和问题的模糊归类，轻松应对各种养殖疑<br />难杂症，极大提升用户体验满足多样化需求<br /><br />
+                        </div>
+                        <br />
+                        <div><a href="javascript:void(0);" class="bluebutton2"
+                                onclick="checkLoginAndRedirect('intelligence.html')">了解详情 &gt;&gt;</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="footer">
+        Copyright © 2024 大智若渔 All rights reserved | 闽ICP备2023013938号 | 闽ICP备2023013938号
+    </section>
+
+    <script>
+        // 页面加载时，检查登录状态
+        window.onload = function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const loginButton = document.getElementById('loginButton');
+            if (isLoggedIn) {
+                loginButton.textContent = '退出登录';
+            } else {
+                loginButton.textContent = '用户登录';
+            }
+        };
+
+        // 处理登录/退出按钮点击事件
+        function handleLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (isLoggedIn) {
+                // 退出登录
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userAccount');
+                alert('已退出登录');
+                window.location.reload(); // 重新加载页面以更新登录状态
+            } else {
+                // 跳转到登录页面
+                window.location.href = 'login.html';
+            }
+        }
+
+        // 检查登录状态后跳转
+        function checkLoginAndRedirect(page) {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (isLoggedIn) {
+                window.location.href = page;  // 已登录，跳转到目标页面
+            } else {
+                localStorage.setItem('redirectUrl', page);  // 未登录，保存目标页面的 URL
+                window.location.href = 'login.html';  // 跳转到登录页面
+            }
+        }
+    </script>
+
+</body>
+
+</html>
