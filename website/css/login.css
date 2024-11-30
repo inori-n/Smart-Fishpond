@@ -1,0 +1,169 @@
+body,html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+a {
+	z-index: 1;
+	width: 100%;
+	color:white;
+	text-decoration: none;
+}
+
+.mainPannel{
+	display: flex;
+	flex-direction: row;
+	background-image: url(../img/bgcLogin.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100%;
+	z-index: 100;
+}
+
+.showPannel{
+	display: flex;
+	flex-direction: column;
+	flex:2.2;
+	height: 100%;
+	justify-content: center;
+	text-align: left;
+	align-items: left;
+	/* background-color: #fff; */
+	/* background-color: red; */
+}
+
+.welcomeText1 img{
+	margin-left: 1.25rem;
+	max-width: 100%;
+	height: 10vh;
+}
+
+.welcomeText1{
+	display: flex;
+	flex-direction: row;
+}
+
+.welcomeText{
+	height: 11%;
+	align-items: center;
+	justify-content: center;
+	margin-left: 20%;
+	font-weight: 800;
+	font-size: 3.4rem;
+}
+
+.loginPannel{
+	display: flex;
+	flex: 3;
+	align-items: center;
+	justify-content: center;
+}
+
+.loginCard{
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+	height: 65%;
+	width: 45%;
+	background-color: #fff;
+	border-radius: 1.25rem;
+	margin-left: -2rem;
+	box-shadow: 0rem 0rem 0.25rem 0.02rem rgba(0, 0, 0, 0.5);
+	text-align: center;
+	justify-items: center;
+	align-items: center;
+}
+
+.loginCard img{
+	margin-top: 2.5rem;
+	margin-bottom: 1.5rem;
+	max-width: 40%;
+	height: auto;
+}
+
+.input{
+	height: 3.5rem;
+	width: 90%;
+	margin-top: 1.5rem;
+	margin-left: auto;
+	margin-right: auto;
+	border: none;
+	border-radius: 5.625rem;
+	box-shadow:0px 0px 3.75rem 0px rgba(0,0,0,0.1);
+	text-indent: 2.125rem;
+	outline: none;
+	font-weight: 300;
+}
+
+.vercode{
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: row;
+}
+
+.inputVercode{
+	margin-top: 1.5rem;
+	flex: 2;
+	height: 3.5rem;
+	margin-left: auto;
+	margin-right: auto;
+	border: none;
+	border-radius: 2.8125rem;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	box-shadow:0px 0px 3.75rem 0px rgba(0,0,0,0.1);
+	text-indent: 2.125rem;
+	outline: none;
+	font-weight: 300;
+}
+
+.vercodeButton{
+	margin-top: 1.5rem;
+	border: none;
+	font-size: 100%;
+	font-weight: 400;
+	height: 3.5rem;
+	background-color: rgba(133, 133, 133, 0.4);
+	border-radius: 2.8125rem;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	line-height: 3.75rem;
+	flex: 1;
+}
+
+.vercodeButton:hover{
+	background-color: rgba(133, 133, 133, 0.2);
+}
+
+.loginButton{
+	margin-top: 2rem;
+	background-color: #3685f2;
+	height: 3.75rem;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	border: none;
+	border-radius: 2.8125rem;
+	box-shadow:0px 0px 3.75rem 0px rgba(0,0,0,0.1);
+	color: #fff;
+	text-align: center;
+	line-height: 3.75rem;
+	font-weight: 300;
+	font-size: 1.25rem;
+}
+
+.loginButton:hover{
+	background-color: rgba(54, 133, 242, 0.5);
+}
+
+.forgetPassword{
+	color: black;
+	text-decoration: none;
+	margin-top: 0.7rem;
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="40"
+   height="40"
+   viewBox="0 0 40 40"
+   sodipodi:docname="圆环.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="9.7492348"
+     inkscape:cx="19.129707"
+     inkscape:cy="18.001413"
+     inkscape:window-width="2560"
+     inkscape:window-height="1334"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1">
+    <path
+       id="path2-9"
+       style="fill:#478eff;stroke:#ffffff;stroke-width:1.77919;fill-opacity:1"
+       d="M 19.998047,0.76221524 A 18.878816,19.135241 0 0 0 1.1196371,19.896923 18.878816,19.135241 0 0 0 19.998047,39.031631 18.878816,19.135241 0 0 0 38.87841,19.896923 18.878816,19.135241 0 0 0 19.998047,0.76221524 Z M 20.207069,9.5427866 A 10.183074,10.050924 0 0 1 30.390549,19.594613 10.183074,10.050924 0 0 1 20.207069,29.644501 10.183074,10.050924 0 0 1 10.023589,19.594613 10.183074,10.050924 0 0 1 20.207069,9.5427866 Z" />
+  </g>
+</svg>

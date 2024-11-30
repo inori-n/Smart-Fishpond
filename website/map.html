@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设备列表</title>
+    <link rel="stylesheet" href="./css/map.css">
+</head>
+
+<body>
+    <div class="header" id="navbar">
+        <img src="./img/whiteLogo.svg" class="logo" alt="" />
+        <div class="headerContent">
+            <a href="index.html" class="jumpLink">首页</a>
+            <a href="map.html" class="jumpLink">设备定位</a>
+            <a href="intelligence.html" class="jumpLink">智能问答</a>
+            <a href="team.html" class="jumpLink">关于我们</a>
+            <a id="loginButton" href="javascript:void(0);" class="jumpLink" onclick="handleLoginStatus()">用户登录</a>
+        </div>
+    </div>
+    <div class="double">
+        <div id="container"></div>
+        <div class="background">
+            <div class="mianban">
+                <div class="xinxi"><b>信息面板</b></div>&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="date" id="date"></div>
+            </div><br />
+            <div class="supercontainer">
+                <div class="last1">
+                    <div class="image1"><img src="img/物联网设备.svg" alt="设备图标"></div>
+                    <div class="text-1">
+                        <div class="zonshu">设备总数</div>
+                        <div class="zonshu2" id="device-count">12345</div>
+                    </div>
+                </div>
+                <div class="last2">
+                    <div class="image2"><img src="img/设备在线.svg" alt="设备图标"></div>
+                    <div class="text-2">
+                        <div class="zaixian">设备在线</div>
+                        <div class="zaixian2" id="online-count">12345</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather" id="weather"></div>
+            <div class="taifeng"><img src="img/red.png">台风即将登陆，请关注实时动态！</div>
+        </div>
+
+    </div>
+    <div class="table-container">
+        <h3>设备列表</h3>
+        <table id="device-table">
+            <thead>
+                <tr>
+                    <th>设备ID</th>
+                    <th>经度</th>
+                    <th>纬度</th>
+                    <th>在线状态</th>
+                    <th>安装时间</th>
+                    <th>地图显示</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 数据将插入这里 -->
+            </tbody>
+        </table>
+
+        <div class="pagination" id="pagination">
+            <!-- 分页按钮将插入这里 -->
+        </div>
+    </div>
+    <section class="footer">
+        Copyright © 2024 大智若渔 All rights reserved | 闽ICP备2023013938号 | 闽ICP备2023013938号
+    </section>
+
+    <script src="https://webapi.amap.com/maps?v=2.0&key=87e9475ef22812ab69f6c365fb511641"></script>
+    <script>
+        function updateDate() {
+            const now = new Date();
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            };
+            document.getElementById('date').innerText = now.toLocaleString('zh-CN', options);
+        }
+
+        // 更新天气信息
+        const apiKey = '******'; // 替换为你的API Key
+        const cityCode = '****'; // 替换为你需要查询的城市代码
+
+        const url = `https://restapi.amap.com/v3/weather/weatherInfo?key=${apiKey}&city=${cityCode}`;
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('网络响应不正常');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === "1") {
+                    const weatherInfo = data.lives[0];
+                    const temperature = parseInt(weatherInfo.temperature);
+                    const windPower = parseInt(weatherInfo.windpower);
+
+                    // 根据温度选择图标
+                    let tempIcon;
+                    if (temperature <= 25) {
+                        tempIcon = 'img/blue.png'; // 图标1路径
+                    } else if (temperature > 25 && temperature <= 30) {
+                        tempIcon = 'img/yellow.png'; // 图标2路径
+                    } else {
+                        tempIcon = 'img/red.png'; // 图标3路径
+                    }
+
+                    // 根据风力选择图标
+                    let windIcon;
+                    if (windPower < 5) {
+                        windIcon = 'img/blue.png'; // 图标1路径
+                    } else if (windPower >= 5 && windPower < 8) {
+                        windIcon = 'img/yellow.png'; // 图标2路径
+                    } else {
+                        windIcon = 'img/red.png'; // 图标3路径
+                    }
+                    const icon1 = 'img/blue.png'; // 图标1路径
+
+                    document.getElementById('weather').innerHTML = `
+    <h3 class="white">${weatherInfo.city}</h3><br/>
+    <div class="weather-row" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center;">
+            <img src="${tempIcon}" alt="温度图标" style="width: 40px; height: 40px; margin-right: 10px;">
+            <span class="white2">温度：</span>
+        </div>
+        <span class="white3">${weatherInfo.temperature}°C</span>
+    </div>
+    <div class="weather-row" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center;">
+            <img src="${icon1}" alt="湿度图标" style="width: 40px; height: 40px; margin-right: 10px;">
+            <span class="white2">湿度：</span>
+        </div>
+        <span class="white3">${weatherInfo.humidity}%</span>
+    </div>
+    <div class="weather-row" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center;">
+            <img src="${icon1}" alt="风向图标" style="width: 40px; height: 40px; margin-right: 10px;">
+            <span class="white2">风向：</span>
+        </div>
+        <span class="white3">${weatherInfo.winddirection}</span>
+    </div>
+    <div class="weather-row" style="margin-bottom: 35px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center;">
+            <img src="${windIcon}" alt="风力图标" style="width: 40px; height: 40px; margin-right: 10px;">
+            <span class="white2">风力：</span>
+        </div>
+        <span class="white3">${weatherInfo.windpower}级</span>
+    </div>
+`;
+
+                } else {
+                    document.getElementById('weather').innerHTML = '获取天气信息失败';
+                }
+            })
+            .catch(error => {
+                console.error('Fetch错误:', error);
+                document.getElementById('weather').innerHTML = '获取天气信息时发生错误';
+            });
+
+        // 初始调用和定时更新日期
+        updateDate(); // 初始调用
+        setInterval(updateDate, 1000); // 每秒更新
+
+        const map = new AMap.Map('container', {
+            zoom: 18,
+            center: [119.349866, 25.603402],
+        });
+
+        const satelliteLayer = new AMap.TileLayer.Satellite();
+        map.add(satelliteLayer);
+        AMap.plugin(["AMap.ToolBar", "AMap.Scale"], function () {
+            map.addControl(new AMap.ToolBar());
+            map.addControl(new AMap.Scale());
+        });
+
+        const data1 = [];
+        const itemsPerPage = 5;
+        let currentPage = 1;
+
+        const API_URL = '****';
+        const infoWindow = new AMap.InfoWindow({ offset: new AMap.Pixel(0, -10) });
+
+        async function fetchDeviceData() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const fetchedData = await response.json();
+                data1.push(...fetchedData);
+                renderTable();
+                setupPagination();
+                addMarkers(); // 添加设备定位图标
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        function renderTable() {
+            const tableBody = document.querySelector('#device-table tbody');
+            tableBody.innerHTML = '';
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, data1.length);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                const device = data1[i];
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                        <td> ${device.device}</td >
+                    <td>${device.lon}</td>
+                    <td>${device.lat}</td>
+                    <td>${device.status}</td>
+                    <td>${new Date(device.installationTime).toLocaleString()}</td>
+                    <td><button class="map-button" data-lat="${device.lat}" data-lon="${device.lon}">跳转</button></td>
+                    `;
+                tableBody.appendChild(row);
+            }
+
+            // 为跳转按钮添加点击事件
+            const mapButtons = document.querySelectorAll('.map-button');
+            mapButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const lat = event.target.dataset.lat;
+                    const lon = event.target.dataset.lon;
+                    setTimeout(() => {
+                        showInfoWindow(lat, lon, event.target.closest('tr'));
+                    }, 1000);
+                    map.setCenter(new AMap.LngLat(lon, lat));
+                });
+            });
+        }
+
+        function setupPagination() {
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+
+            const pageCount = Math.ceil(data1.length / itemsPerPage);
+            for (let i = 1; i <= pageCount; i++) {
+                const button = document.createElement('button');
+                button.innerText = i;
+                button.classList.add('page-button');
+                if (i === currentPage) button.classList.add('active');
+
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    renderTable();
+                    setupPagination();
+                });
+
+                paginationContainer.appendChild(button);
+            }
+        }
+        function updateDeviceCounts() {
+            const totalCount = data1.length;
+            const onlineCount = data1.filter(device => device.status === '在线').length;
+
+            document.getElementById('device-count').innerText = `
+             ${totalCount} `;
+            document.getElementById('online-count').innerText = `
+             ${onlineCount} `;
+        }
+
+        async function fetchDeviceData() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const fetchedData = await response.json();
+                data1.push(...fetchedData);
+                renderTable();
+                setupPagination();
+                updateDeviceCounts(); // 更新设备总数和在线数量
+                addMarkers(); // 添加设备定位图标
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+
+        function showInfoWindow(lat, lon, row) {
+            const deviceId = row.cells[0].innerText;
+            const status = row.cells[3].innerText;
+            const installationTime = row.cells[4].innerText;
+
+            const infoWindowContent = `
+        <div class="info-window" >
+            <p><strong>设备ID:</strong> ${deviceId}</p>
+            <p><strong>在线状态:</strong> ${status}</p>
+            <p><strong>经度:</strong> ${lon}</p>
+            <p><strong>纬度:</strong> ${lat}</p>
+            <p><strong>安装时间:</strong> ${installationTime}</p>
+        </div>
+    `;
+
+            infoWindow.setContent(infoWindowContent);
+            infoWindow.open(map, new AMap.LngLat(lon, lat));
+        }
+
+        function hideInfoWindow() {
+            infoWindow.close();
+        }
+
+        function addMarkers() {
+            data1.forEach(device => {
+                const marker = new AMap.Marker({
+                    position: new AMap.LngLat(device.lon, device.lat),
+                    title: device.device,
+                    icon: 'img/定位4.png', // 用你的图片路径替换
+                });
+
+                marker.setMap(map);
+
+                // 鼠标悬停时显示信息窗口
+                marker.on('mouseover', () => {
+                    showInfoWindow(device.lat, device.lon, {
+                        cells: [
+                            { innerText: device.device },
+                            {},
+                            {},
+                            { innerText: device.status },
+                            { innerText: new Date(device.installationTime).toLocaleString() }
+                        ]
+                    });
+                });
+
+                // 鼠标移出时关闭信息窗口
+                marker.on('mouseout', hideInfoWindow);
+            });
+        }
+
+
+
+        fetchDeviceData();
+
+        // 页面加载时，检查登录状态
+        window.onload = function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const loginButton = document.getElementById('loginButton');
+            if (isLoggedIn) {
+                loginButton.textContent = '退出登录';
+            } else {
+                loginButton.textContent = '用户登录';
+            }
+        };
+
+        // 处理登录/退出按钮点击事件
+        function handleLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (isLoggedIn) {
+                // 退出登录
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userAccount');
+                alert('已退出登录');
+                window.location.reload(); // 重新加载页面以更新登录状态
+            } else {
+                // 跳转到登录页面
+                window.location.href = 'login.html';
+            }
+        }
+
+        // 检查登录状态后跳转
+        function checkLoginAndRedirect(page) {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (isLoggedIn) {
+                window.location.href = page;  // 已登录，跳转到目标页面
+            } else {
+                localStorage.setItem('redirectUrl', page);  // 未登录，保存目标页面的 URL
+                window.location.href = 'login.html';  // 跳转到登录页面
+            }
+        }
+
+    </script>
+</body>
+
+</html>

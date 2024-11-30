@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语音转文字</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>语音转文字</h1>
+    <button id="startBtn">开始语音识别</button>
+    <button id="stopBtn" disabled>停止识别</button>
+    <div id="result"></div>
+
+    <script>
+        // 检查浏览器是否支持 SpeechRecognition
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (!SpeechRecognition) {
+            alert("抱歉，您的浏览器不支持语音识别功能。");
+        } else {
+            var recognition = new SpeechRecognition();
+            recognition.lang = "zh-CN";  // 设置语言为中文
+            recognition.interimResults = true;  // 获取中间结果
+
+            var resultDiv = document.getElementById("result");
+            var startBtn = document.getElementById("startBtn");
+            var stopBtn = document.getElementById("stopBtn");
+
+            // 开始语音识别
+            startBtn.onclick = function () {
+                recognition.start();
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+            };
+
+            // 停止语音识别
+            stopBtn.onclick = function () {
+                recognition.stop();
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            };
+
+            // 语音识别成功回调
+            recognition.onresult = function (event) {
+                var transcript = "";
+                for (var i = event.resultIndex; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript;
+                }
+                resultDiv.textContent = transcript;
+            };
+
+            // 语音识别结束回调
+            recognition.onend = function () {
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            };
+
+            // 语音识别错误回调
+            recognition.onerror = function (event) {
+                console.error("语音识别错误: " + event.error);
+                alert("发生错误: " + event.error);
+            };
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+/* 将body样式移到这里 */
+.chat-page {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#chat-container {
+    width: 85%;
+    height: 45vh;
+    /* 初始高度为 20% 的视口高度 */
+    background-color: white;
+    border-radius: 35px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: height 0.3s ease;
+}
+
+#prompt {
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    margin: 20px 0;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+#chat-box {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+    height: 100px;
+    /* 初始聊天框高度较小 */
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    transition: height 0.3s ease;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    max-width: 100%;
+}
+
+.message.bot-msg {
+    justify-content: flex-start;
+}
+
+.message.user-msg {
+    justify-content: flex-end;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-msg .message-content {
+    background-color: #d1f7d1;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.bot-msg .message-content {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+#input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f0f0f56a;
+    /* 修改背景颜色，使其与 ChatGPT 输入框相似 */
+    font-size: 16px;
+
+}
+
+#send-btn {
+    padding: 10px 15px;
+    background-color: #88888821;
+    color: rgb(0, 0, 0);
+    border-color: rgba(0, 0, 0, 0.384);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#send-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+#send-btn:hover {
+    background-color: #71717153;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 直接设为半透明黑色 */
+    width: 95%;
+    height: 60px;
+    position: fixed;
+    left: 2.5%;
+    top: 0.5%;
+    z-index: 999;
+    border-radius: 20px;
+    word-break: keep-all;
+    border: 1.5px solid transparent;
+    /* 移除过渡动画 */
+}
+
+.header:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 保持背景颜色不变 */
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-right: 50px;
+    margin-left: 60vw;
+}
+
+.jumpLink {
+    text-decoration: none;
+    color: white;
+    font-family: Microsoft YaHei Light;
+
+}
+
+.jumpLink:hover {
+    margin-bottom: -7px;
+    /* text-decoration: underline; */
+    padding-bottom: 5px;
+    border-bottom: 2px solid white;
+}
+
+
+.logo {
+    width: 100vw;
+    height: 5vh;
+}
+
+/* 关键词框容器 */
+.keywords-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 2.3%;
+    flex-wrap: wrap;
+}
+
+/* 单个关键词框 */
+.keyword-btn {
+    background-color: rgb(255, 255, 255);
+    color: rgba(3, 0, 0, 0.705);
+    padding: 9px 12px;
+    border-color: rgba(0, 0, 0, 0.178);
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.keyword-btn:hover {
+    background-color: #8a898919;
+}
+
+.keyword-btn img {
+    width: 32px;
+    height: 20px;
+
+}
+
+#startBtn {
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0.384);
+}
+
+#startBtn:hover {
+    background-color: #71717153;
+}
+
+#stopBtn {
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0.384);
+}
+
+#stopBtn:hover {
+    background-color: #71717153;
+}

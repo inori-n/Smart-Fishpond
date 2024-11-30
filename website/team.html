@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>关于我们</title>
+	<link rel="shortcut icon" href="img/logo.svg" type="image/x-icon" />
+	<link rel="stylesheet" href="./css/team.css">
+	<script src="./js/rollDown.js"></script>
+</head>
+
+<body>
+	<!-- 这是导航栏 -->
+	<div class="header" id="navbar">
+		<img src="./img/whiteLogo.svg" class="logo" alt="" />
+		<div class="headerContent">
+			<a href="index.html" class="jumpLink">首页</a>
+			<a href="javascript:void(0);" class="jumpLink" onclick="checkLoginAndRedirect('map.html')">设备定位</a>
+			<a href="javascript:void(0);" class="jumpLink" onclick="checkLoginAndRedirect('intelligence.html')">智能问答</a>
+			<a href="team.html" class="jumpLink">关于我们</a>
+			<a id="loginButton" class="jumpLink" onclick="handleLoginStatus()">用户登录</a>
+		</div>
+	</div>
+
+	<!-- 这是头部背景图 -->
+	<div class="bgcAboutUs">
+		<div class="bgcLeft">
+			<div class="bgcText">关于我们</div>
+			<div class="bgcText1">ABOUT US</div>
+		</div>
+		<div class="bgcRight"></div>
+		<div class="arrow" onclick="scrollDown(300)">
+			滚动鼠标或单击继续浏览
+			<svg viewBox="0 0 1843 1024" width="80px" height="80px">
+				<path
+					d="M1221.06136021 284.43250057a100.69380037 100.69380037 0 0 1 130.90169466 153.0543795l-352.4275638 302.08090944a100.69380037 100.69380037 0 0 1-130.90169467 0L516.20574044 437.48688007A100.69380037 100.69380037 0 0 1 647.10792676 284.43250057L934.08439763 530.52766665l286.97696258-246.09516608z"
+					fill="rgba(255,255,255,0.8)" p-id="21356"></path>
+			</svg>
+		</div>
+	</div>
+
+	<!-- 开发历程部分 -->
+	<section id="history">
+		<h1 class="heading">
+			<!--icon---------------->
+			<i class="fas fa-rocket"></i> <a href="index.html">开发历程</a>
+		</h1>
+		<div class="history">
+			<div class="up">
+				<div class="histroyCard" id="part1">
+					<div class="historyData">2024年9月</div>
+					<div class="historyContent">
+						市场调研，需求分析，分配任务，项目开发方案设计，建立评估体系。
+					</div>
+				</div>
+				<div class="histroyCard" id="part2">
+					<div class="historyData">2024年10月下旬</div>
+					<div class="historyContent">
+						完成界面设计，深入开发前端、后端、算法。
+					</div>
+				</div>
+				<div class="histroyCard" id="part3">
+					<div class="historyData">2024年11月下旬</div>
+					<div class="historyContent">撰写项目材料</div>
+				</div>
+			</div>
+			<div class="line">
+				<div class="dot" id="part1Dot"></div>
+				<div class="dot" id="part2Dot"></div>
+				<div class="dot" id="part3Dot"></div>
+				<div class="dot" id="part4Dot"></div>
+				<div class="dot" id="part5Dot"></div>
+			</div>
+			<div class="down">
+				<div class="histroyCard" id="part4">
+					<div class="historyData">2024年10月上旬</div>
+					<div class="historyContent">
+						完成项目框架的初步搭建。
+					</div>
+				</div>
+				<div class="histroyCard" id="part5">
+					<div class="historyData">2024年11月上旬</div>
+					<div class="historyContent">
+						前端、后端、算法拼接，系统联调测试、修改。
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- 团队成员部分 -->
+	<script src="js/button.js"></script>
+	<section id="team">
+
+		<!-- 团队成员 -->
+		<h1 class="heading">
+			<!--icon---------------->
+			<i class="fas fa-rocket"></i> <a href="index.html">团队成员</a>
+		</h1>
+		<!--container---------------->
+		<div class="container">
+			<!--box-1----------->
+			<div class="box" style="visibility: hidden;;">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn4" type="checkbox" />
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/qjy.jpg" />
+					<strong>占位</strong>
+					<p>1203815112@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=1203815112"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-2----------->
+			<div class="box" style="visibility: hidden;;">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn4" type="checkbox" />
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/qjy.jpg" />
+					<strong>占位</strong>
+					<p>1203815112@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=1203815112"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-3----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn4" type="checkbox" />
+					<strong>团队负责人</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/qjy.jpg" />
+					<strong>邱嘉毅</strong>
+					<p>993603213qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=993603213"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-4----------->
+			<div class="box" style="visibility: hidden;;">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn4" type="checkbox" />
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/qjy.jpg" />
+					<strong>占位</strong>
+					<p>1203815112@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=1203815112"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-5----------->
+			<div class="box" style="visibility: hidden;;">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn4" type="checkbox" />
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/qjy.jpg" />
+					<strong>占位</strong>
+					<p>1203815112@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=1203815112"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-6----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>前端开发</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/zky.jpg" />
+					<strong>张开羽</strong>
+					<p>2584670051@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=2584670051"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-10----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>前端开发</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/cyt.jpg" />
+					<strong>蔡翊涛</strong>
+					<p>1079849505@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=1079849505"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-7----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>前端开发</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/zsc.jpg" />
+					<strong>张书畅</strong>
+					<p>3022943831@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=3022943831"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-8----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn3" type="checkbox" />
+					<strong>前端开发</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/yyz.jpg" />
+					<strong>余一舟</strong>
+					<p>3576597249@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=3576597249"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-9----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>接口开发</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/lzl.jpg" />
+					<strong>林智伦</strong>
+					<p>1036698618@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=1036698618"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-15----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>算法开发</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/ljt.jpg" />
+					<strong>林锦涛</strong>
+					<p>1208779078@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=1208779078"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-11----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>系统测试</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/hbh.jpg" />
+					<strong>黄博晖</strong>
+					<p>3033224014@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=3033224014"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-12----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>后端开发</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/qyz.jpg" />
+					<strong>邱宇哲</strong>
+					<p>947345487@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=947345487"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-13----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>后端开发</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/sjx.jpg" />
+					<strong>苏景瑄</strong>
+					<p>2865339205@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=2865339205"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-14----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>后端开发</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/dyh.jpg" />
+					<strong>杜宇涵</strong>
+					<p>466534361@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=466534361"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-19----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>需求分析</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/sjl.jpg" />
+					<strong>苏佳莉</strong>
+					<p>2609305802@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=2609305802"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-16----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>交互设计</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/zcx.jpg" />
+					<strong>庄晨鑫</strong>
+					<p>1919582175@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=1919582175"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-17----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>UI设计</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/cxl.jpg" />
+					<strong>陈欣蕾</strong>
+					<p>2102844263@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=2102844263"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-18----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>界面设计</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/gyz.jpg" />
+					<strong>高彦卓</strong>
+					<p>624244323@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=624244323"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+			<!--box-20----------->
+			<div class="box">
+				<!--top-bar---------------->
+				<div class="top-bar"></div>
+				<!--nav------------->
+				<div class="nav">
+					<!--verify-icon-------->
+					<i class="verify fas fa-check-circle"></i>
+					<!--heart-btn--------------->
+					<input class="heart-btn" id="heart-btn2" type="checkbox" />
+					<strong>界面设计</strong>
+					<label class="heart"></label>
+				</div>
+				<!--img and details---------------->
+				<div class="details">
+					<img alt="" src="img/lzm.jpg" />
+					<strong>林子苗</strong>
+					<p>3489981488@qq.com</p>
+				</div>
+				<!--view-btns------------------->
+				<div class="btn">
+					<a href="tencent://message/?uin=3489981488"><i class="fas fa-clipboard-list"></i>Talk</a>
+					<a href="#"><i class="fas fa-eye"></i>View</a>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+
+	<section class="footer">
+		Copyright © 2024 大智若渔 All rights reserved | 闽ICP备2023013938号 | 闽ICP备2023013938号
+	</section>
+	<script src="js/changeDotAndCardColor.js"></script>
+	<script>
+		// 页面加载时，检查登录状态
+		window.onload = function () {
+			const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+			const loginButton = document.getElementById('loginButton');
+			if (isLoggedIn) {
+				loginButton.textContent = '退出登录';
+			} else {
+				loginButton.textContent = '用户登录';
+			}
+		};
+
+		// 处理登录/退出按钮点击事件
+		function handleLoginStatus() {
+			const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+			if (isLoggedIn) {
+				// 退出登录
+				localStorage.removeItem('isLoggedIn');
+				localStorage.removeItem('userAccount');
+				alert('已退出登录');
+				window.location.reload(); // 重新加载页面以更新登录状态
+			} else {
+				// 跳转到登录页面
+				window.location.href = 'login.html';
+			}
+		}
+
+		// 检查登录状态后跳转
+		function checkLoginAndRedirect(page) {
+			const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+			if (isLoggedIn) {
+				window.location.href = page;  // 已登录，跳转到目标页面
+			} else {
+				localStorage.setItem('redirectUrl', page);  // 未登录，保存目标页面的 URL
+				window.location.href = 'login.html';  // 跳转到登录页面
+			}
+		}
+	</script>
+
+</body>
+
+</html>

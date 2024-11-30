@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>用户登录</title>
+	<link rel="stylesheet" href="css/login.css" />
+	<script src="/js/axios.js"></script>
+	<link rel="shortcut icon" href="img/logo.svg" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="mainPannel">
+		<div class="showPannel">
+			<div class="welcomeText1">
+				<div class="welcomeText">Welcome!</div>
+				<img src="img/smile.png" alt="" />
+			</div>
+			<div class="welcomeText">物联网，让养殖更简单</div>
+		</div>
+		<div class="loginPannel">
+			<div class="loginCard">
+				<img src="img/blackLogo.png" alt="" />
+				<input type="text" class="input" name="account" id="account" placeholder="邮箱" />
+				<input type="password" class="input" name="password" id="password" placeholder="密码" />
+				<div class="vercode">
+					<input type="text" name="vercode" class="inputVercode" id="vercode" maxlength="6"
+						placeholder="验证码" />
+					<button class="vercodeButton" id="timer">获取验证码</button>
+				</div>
+				<!-- <button class="loginButton" id="login" type="submit" onclick='location.href=("index.html")'>登录/注册</button> -->
+				<button class="loginButton" id="login" type="submit">登录/注册</button>
+				<a href="forget.html" class="forgetPassword">忘记密码</a>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/vercodeTimer.js"></script>
+	<script src="js/login.js"></script>
+</body>
+
+</html>
