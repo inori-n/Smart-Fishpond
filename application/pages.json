@@ -1,0 +1,169 @@
+{
+	"easycom": {
+		"^u-(.*)":"uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [
+	{
+		"path" : "pages/login/login",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false
+		}
+	},
+	{
+		"path": "pages/index/index",
+		"style": {
+			"navigationStyle": "custom",
+			"navigationBarTitleText": "数据一览",
+			"disableSwipeBack": "true",
+			// "disableScroll": true,
+			// "scrollIndicator": "none",
+			"app-plus": {
+				"scrollIndicator": "none"
+			}
+		}
+	},
+	{
+		"path" : "pages/pound/pound",
+		"style" : 
+		{
+			"navigationBarTitleText" : "我的",
+			"disableSwipeBack": "true"
+
+		}
+	},
+	{
+		"path" : "pages/device/device",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false,
+			"navigationStyle": "custom"
+		}
+	},
+	{
+		"path" : "pages/temperature/temperature",
+		"style" : 
+		{
+			"navigationBarTitleText" : "气温详情",
+			"enablePullDownRefresh" : false
+			// "navigationStyle": "custom"			
+		}
+	},
+	{
+		"path" : "pages/humidity/humidity",
+		"style" : 
+		{
+			"navigationBarTitleText" : "湿度详情",
+			"enablePullDownRefresh" : false
+			// "navigationStyle": "custom"
+		}
+	},
+	{
+		"path" : "pages/depth/depth",
+		"style" : 
+		{
+			"navigationBarTitleText" : "深度详情",
+			"enablePullDownRefresh" : false
+			// "navigationStyle": "custom"
+		}
+	},
+	{
+		"path" : "pages/water_temperatu/water_temperatu",
+		"style" : 
+		{
+			"navigationBarTitleText" : "水温详情",
+			"enablePullDownRefresh" : false
+			// "navigationStyle": "custom"
+		}
+	},
+	{
+		"path" : "pages/Airtemperature/Airtemperature",
+		"style" : 
+		{
+			"navigationBarTitleText" : "气温详情",
+			"enablePullDownRefresh" : false
+			// "navigationStyle": "custom"		
+		}
+	},
+	{
+		"path" : "pages/forget/forget",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false
+		}
+	},
+	{
+		"path" : "pages/register/register",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false
+		}
+	},
+	{
+		"path" : "pages/log/log",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false,
+			"navigationStyle": "custom"
+		}
+	},
+	{
+		"path" : "pages/application/application",
+		"style" : 
+		{
+			"navigationBarTitleText" : "关于我们",
+			"enablePullDownRefresh" : false
+		}
+	},
+	{
+		"path" : "pages/QuestionAndAnswer/QuestionAndAnswer",
+		"style" : 
+		{
+			"navigationBarTitleText" : "问题诊断",
+			"enablePullDownRefresh" : false
+		}
+	}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+	// 配置tabbar导航栏
+		"tabBar": {
+			"borderStyle": "black",
+			"selectedColor": "#FB7299",
+			"color": "#444444",
+			"iconWidth": "20px",
+			"list": [
+				{
+					"pagePath": "pages/index/index",
+					"iconPath": "static/assets/image/fish.png",
+					"selectedIconPath": "static/assets/image/fish.png",
+					"text": "渔场"
+				},{
+					"pagePath": "pages/device/device",
+					"iconPath": "static/assets/image/equipment.png",
+					"selectedIconPath": "static/assets/image/equipment.png",
+					"text": "设备"
+				},
+				{
+					"pagePath": "pages/pound/pound",
+					"iconPath": "static/assets/image/me.png",
+					"selectedIconPath": "static/assets/image/me.png",
+					"text": "我的"
+				}
+			]
+		}
+	
+
+}
